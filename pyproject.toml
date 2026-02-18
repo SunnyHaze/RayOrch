@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rayorch"
+description = "Fast Inference Architecture for MinerU"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.10, <4"
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: Free For Educational Use",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+]
+keywords = [
+    "AI",
+    "artificial intelligence",
+]
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+Github = "https://github.com/OpenDCAI/RayOrch"
+"Bug Reports" = "https://github.com/OpenDCAI/RayOrch/issues"
+
+
+[tool.setuptools]
+include-package-data = true
+packages = ["rayorch"]  # 显式指定主包
+
+
+[tool.setuptools.dynamic]
+version = {attr = "rayorch.version.__version__"}
+dependencies = {file = "requirements.txt"}
+
+
+[project.optional-dependencies]
+vllm = ["vllm"]
+sglang = ["sglang"] # Future Support
